@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+// url on library
+// https://github.com/jepser/use-match-media
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import {useMatchMedia} from "./hooks";
+import Mobile from "./components/Mobile";
+import Desktop from "./components/Desktop";
+import Tablet from "./components/Tablet";
+
+
+const App = () => {
+
+    //  const {isMobile} = useMatchMedia(); = {isMobile: true, isTabled: false, isDesktop: false}
+    const {isMobile, isDesktop, isTablet} = useMatchMedia();
+    console.log(`isMobile`, isMobile);
+
+    return (
+        // <div>
+        //     {isMobile ? (
+        //         <Mobile/>
+        //     ) : (
+        //         <Desktop/>
+        //     )
+        //     }
+        // </div>
+        <div>
+            {
+                isMobile && <Mobile/>
+            }
+            {
+                isDesktop && <Desktop/>
+            }
+            {
+                isTablet && <Tablet/>
+            }
+
+
+        </div>
+    );
+};
 
 export default App;
