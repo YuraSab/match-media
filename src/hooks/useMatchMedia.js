@@ -19,9 +19,9 @@ export const useMatchMedia = () => {
 
     const getValues = () =>  mediaQueryLists.map(mql => mql.matches);
     // const getValues =  mediaQueryLists.map(mql => mql.matches);
-    console.log(getValues);
+    // console.log(getValues);
     const [ values, setValues ] = useState(getValues);
-    console.log('values', values)
+    // console.log('values', values)
 
     useLayoutEffect(() => {
        //  даний хендлер обновляє значення values
